@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://28vc05tljk10"]
+
+[ext_resource type="Script" path="res://game/visible_on_screen_notifier.gd" id="1_s2ntj"]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01669, 0)
+aabb = AABB(-1, -0.976522, -1, 2, 1.95304, 2)
+script = ExtResource("1_s2ntj")
+
+[connection signal="screen_entered" from="." to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="." to="." method="_on_screen_exited"]

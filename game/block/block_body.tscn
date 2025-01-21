@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://22mhs1xyy26t"]
+
+[ext_resource type="Shape3D" uid="uid://dbmibd5lsofnf" path="res://game/block/block_shape.tres" id="1_35f43"]
+
+[node name="BlockBody" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = ExtResource("1_35f43")

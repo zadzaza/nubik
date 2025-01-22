@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dlikhlmw8i4n2"
-path="res://.godot/imported/HexArmoryPlatform.fbx-0e3ca576bd3e053992a6d4be53944450.scn"
+path="res://.godot/imported/HexArmoryPlatform.fbx-4a141d1655c305528b9554fa4d95ee7b.scn"
 
 [deps]
 
-source_file="res://res/HexArmoryPlatform.fbx"
-dest_files=["res://.godot/imported/HexArmoryPlatform.fbx-0e3ca576bd3e053992a6d4be53944450.scn"]
+source_file="res://res/models/HexArmoryPlatform.fbx"
+dest_files=["res://.godot/imported/HexArmoryPlatform.fbx-4a141d1655c305528b9554fa4d95ee7b.scn"]
 
 [params]
 
@@ -31,7 +31,19 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Circle": {
+"import/skip_import": true
+},
+"PATH:Cylinder_005": {
+"import/skip_import": true
+},
+"PATH:GlowCircle": {
+"import/skip_import": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

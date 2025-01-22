@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d04mitgw23he"
-path.s3tc="res://.godot/imported/hammer_1.png-ae9e5ef23683fdc454a707b40a228646.s3tc.ctex"
+uid="uid://dttpag8y5fung"
+path.s3tc="res://.godot/imported/model_1.png-109f9d810a9347691a9a54885ccc15e8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://res/hammer_1.png"
-dest_files=["res://.godot/imported/hammer_1.png-ae9e5ef23683fdc454a707b40a228646.s3tc.ctex"]
+source_file="res://textures/model_1.png"
+dest_files=["res://.godot/imported/model_1.png-109f9d810a9347691a9a54885ccc15e8.s3tc.ctex"]
 
 [params]
 

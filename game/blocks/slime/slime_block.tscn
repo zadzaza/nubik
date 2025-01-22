@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgxbew60n5mu4"]
 
-[ext_resource type="PackedScene" uid="uid://dh15sq5cp46w4" path="res://res/Slime_blend.fbx" id="1_fm43s"]
-[ext_resource type="PackedScene" uid="uid://22mhs1xyy26t" path="res://game/block/block_body.tscn" id="2_w2cwc"]
-[ext_resource type="Script" path="res://game/slime/slime_block.gd" id="2_ycq1r"]
-[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier_3d.tscn" id="3_o8qtb"]
-[ext_resource type="ArrayOccluder3D" uid="uid://bbyr2j0pbyxxd" path="res://game/block/block.occ" id="4_d53ae"]
+[ext_resource type="PackedScene" uid="uid://dh15sq5cp46w4" path="res://res/models/Slime_blend.fbx" id="1_fm43s"]
+[ext_resource type="PackedScene" uid="uid://22mhs1xyy26t" path="res://game/block_body.tscn" id="2_w2cwc"]
+[ext_resource type="Script" path="res://game/blocks/slime/slime_block.gd" id="2_ycq1r"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="3_o8qtb"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bbyr2j0pbyxxd" path="res://game/blocks/block.occ" id="4_d53ae"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uy5y4"]
 size = Vector3(1.91345, 1.51805, 1.90772)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfw5gr85l07rd"]
 
-[ext_resource type="PackedScene" uid="uid://dm3cy2hvdqrhf" path="res://res/hammer.gltf" id="1_2hohk"]
+[ext_resource type="PackedScene" uid="uid://dm3cy2hvdqrhf" path="res://res/models/hammer.gltf" id="1_2hohk"]
 [ext_resource type="Script" path="res://game/hammer/hammer.gd" id="2_w7vqi"]
-[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier_3d.tscn" id="2_xdxsa"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="2_xdxsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_avrmr"]
 size = Vector3(0.476501, 0.446869, 1.29443)

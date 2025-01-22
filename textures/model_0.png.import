@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5rvwvom0wrsa"
-path.s3tc="res://.godot/imported/hammer_2.png-79cc38a489911d9e32697bc13bbb830a.s3tc.ctex"
+uid="uid://dsyj150bgkqxv"
+path.s3tc="res://.godot/imported/model_0.png-6e1994b42e84dba80ec874c26d2f0c49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c8c168bca5c16bd55af853e7ede60637"
+"md5": "36084e666605075346acc2a6c739226c"
 }
 
 [deps]
 
-source_file="res://res/hammer_2.png"
-dest_files=["res://.godot/imported/hammer_2.png-79cc38a489911d9e32697bc13bbb830a.s3tc.ctex"]
+source_file="res://textures/model_0.png"
+dest_files=["res://.godot/imported/model_0.png-6e1994b42e84dba80ec874c26d2f0c49.s3tc.ctex"]
 
 [params]
 

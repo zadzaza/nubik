@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdvjbab26atir"
-path.s3tc="res://.godot/imported/stars.png-26d21241956d5381d6f1ad1db2ebf1b9.s3tc.ctex"
+uid="uid://b6i1gk6uentq1"
+path.s3tc="res://.godot/imported/hammer_3.png-0415fdd26fe274d67bf17644425665de.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "fa475ea241925304171313ae949b1ac8"
+}
 
 [deps]
 
-source_file="res://res/stars.png"
-dest_files=["res://.godot/imported/stars.png-26d21241956d5381d6f1ad1db2ebf1b9.s3tc.ctex"]
+source_file="res://textures/hammer_3.png"
+dest_files=["res://.godot/imported/hammer_3.png-0415fdd26fe274d67bf17644425665de.s3tc.ctex"]
 
 [params]
 

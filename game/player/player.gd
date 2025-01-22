@@ -24,11 +24,10 @@ var jump_vel: Vector3 # Jumping velocity
 
 @onready var camera: Camera3D = $Camera3D
 
-func _ready() -> void:
-	capture_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
+		capture_mouse()
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
 	if Input.is_action_just_pressed("exit"): get_tree().quit()

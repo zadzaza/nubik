@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1j3ocbv511i6"]
+
+[ext_resource type="PackedScene" uid="uid://bkbmws3yh27pa" path="res://res/models/grass_block.fbx" id="1_u1cn7"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="2_5yac7"]
+[ext_resource type="PackedScene" uid="uid://22mhs1xyy26t" path="res://game/block_body.tscn" id="2_687jv"]
+[ext_resource type="ArrayMesh" uid="uid://2e417dkiy27x" path="res://res/meshes/grass_block.mesh" id="2_ybebx"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bbyr2j0pbyxxd" path="res://game/blocks/block.occ" id="3_kcffi"]
+
+[node name="GrassBlock" instance=ExtResource("1_u1cn7")]
+
+[node name="Grass_Block_Cube" parent="." index="0"]
+visibility_range_end = 100.0
+mesh = ExtResource("2_ybebx")
+
+[node name="BlockBody" parent="." index="1" instance=ExtResource("2_687jv")]
+
+[node name="VisibleOnScreenNotifier3D" parent="." index="2" node_paths=PackedStringArray("meshes") instance=ExtResource("2_5yac7")]
+meshes = [null]
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.004, 0)
+occluder = ExtResource("3_kcffi")

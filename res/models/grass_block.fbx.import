@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dm3cy2hvdqrhf"
-path="res://.godot/imported/hammer.gltf-b1ea1302b3a67cf8d96080ae58cf2171.scn"
+uid="uid://bkbmws3yh27pa"
+path="res://.godot/imported/grass_block.fbx-57e64e005c619ac1be3ba8f675ff4940.scn"
 
 [deps]
 
-source_file="res://res/hammer.gltf"
-dest_files=["res://.godot/imported/hammer.gltf-b1ea1302b3a67cf8d96080ae58cf2171.scn"]
+source_file="res://res/models/grass_block.fbx"
+dest_files=["res://.godot/imported/grass_block.fbx-57e64e005c619ac1be3ba8f675ff4940.scn"]
 
 [params]
 
@@ -25,12 +25,13 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

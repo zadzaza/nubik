@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bgasp4caop65w"
-path="res://.godot/imported/Bed.fbx-60cd494d75d22da4c0cce8994706d32a.scn"
+path="res://.godot/imported/Bed.fbx-cb61879a7048cc5b78f4dfa4d992ebea.scn"
 
 [deps]
 
-source_file="res://res/Bed.fbx"
-dest_files=["res://.godot/imported/Bed.fbx-60cd494d75d22da4c0cce8994706d32a.scn"]
+source_file="res://res/models/Bed.fbx"
+dest_files=["res://.godot/imported/Bed.fbx-cb61879a7048cc5b78f4dfa4d992ebea.scn"]
 
 [params]
 

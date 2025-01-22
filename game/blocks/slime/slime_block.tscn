@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgxbew60n5mu4"]
+[gd_scene load_steps=9 format=3 uid="uid://bgxbew60n5mu4"]
 
 [ext_resource type="PackedScene" uid="uid://dh15sq5cp46w4" path="res://res/models/Slime_blend.fbx" id="1_fm43s"]
 [ext_resource type="PackedScene" uid="uid://22mhs1xyy26t" path="res://game/block_body.tscn" id="2_w2cwc"]
 [ext_resource type="Script" path="res://game/blocks/slime/slime_block.gd" id="2_ycq1r"]
 [ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="3_o8qtb"]
+[ext_resource type="ArrayMesh" uid="uid://daeuuq872fkyj" path="res://res/meshes/slime_body.mesh" id="3_v0ir0"]
+[ext_resource type="ArrayMesh" uid="uid://bvfd0t6qxgsf8" path="res://res/meshes/slime_slime.mesh" id="4_1kcch"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bbyr2j0pbyxxd" path="res://game/blocks/block.occ" id="4_d53ae"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_uy5y4"]
-size = Vector3(1.91345, 1.51805, 1.90772)
+[ext_resource type="Shape3D" uid="uid://djvdhi2lbs6mi" path="res://game/blocks/slime/slime_jump_area_mesh.tres" id="8_iocjf"]
 
 [node name="SlimeBlock" instance=ExtResource("1_fm43s")]
 script = ExtResource("2_ycq1r")
@@ -15,42 +15,29 @@ script = ExtResource("2_ycq1r")
 [node name="Body" parent="." index="0"]
 transform = Transform3D(73, 0, 0, 0, -3.17467e-06, 72.487, 0, -72.628, -3.16851e-06, 0, 0, 0)
 visibility_range_end = 100.0
+mesh = ExtResource("3_v0ir0")
 
 [node name="Slime" parent="." index="1"]
 transform = Transform3D(100.492, 0, 0, 0, -4.37025e-06, 99.7856, 0, -99.9797, -4.36177e-06, 0.00594631, -0.00955048, -0.00359839)
 visibility_range_end = 100.0
+mesh = ExtResource("4_1kcch")
 
-[node name="EyeR" parent="." index="2"]
-transform = Transform3D(25.1231, 0, 0, 0, -1.09256e-06, 24.9464, 0, -24.9949, -1.09044e-06, 0.634023, 0.146365, 0.558788)
-visible = false
-visibility_range_end = 100.0
-
-[node name="Mouth" parent="." index="3"]
-transform = Transform3D(12.5615, 0, 0, 0, -5.46282e-07, 12.4732, 0, -12.4975, -5.45221e-07, 0.759639, -0.383747, -0.128573)
-visible = false
-visibility_range_end = 100.0
-
-[node name="EyeL" parent="." index="4"]
-transform = Transform3D(25.1231, 0, 0, 0, -1.09256e-06, 24.9464, 0, -24.9949, -1.09044e-06, 0.634023, 0.146365, -0.565984)
-visible = false
-visibility_range_end = 100.0
-
-[node name="BlockBody" parent="." index="5" instance=ExtResource("2_w2cwc")]
+[node name="BlockBody" parent="." index="2" instance=ExtResource("2_w2cwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02251, 0)
 
-[node name="VisibleOnScreenNotifier3D" parent="." index="6" node_paths=PackedStringArray("meshes") instance=ExtResource("3_o8qtb")]
+[node name="VisibleOnScreenNotifier3D" parent="." index="3" node_paths=PackedStringArray("meshes") instance=ExtResource("3_o8qtb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-meshes = [NodePath("../Body"), NodePath("../Slime"), null]
+meshes = [null, null, null]
 
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="7"]
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="4"]
 occluder = ExtResource("4_d53ae")
 
-[node name="SlimeJumpArea" type="Area3D" parent="." index="8"]
+[node name="SlimeJumpArea" type="Area3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.080139, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlimeJumpArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00640869, 0.301138, 0.000788212)
-shape = SubResource("BoxShape3D_uy5y4")
+shape = ExtResource("8_iocjf")
 
 [connection signal="body_entered" from="SlimeJumpArea" to="." method="_on_slime_jump_area_body_entered"]
 [connection signal="body_exited" from="SlimeJumpArea" to="." method="_on_slime_jump_area_body_exited"]

@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfw5gr85l07rd"]
+[gd_scene load_steps=12 format=3 uid="uid://dfw5gr85l07rd"]
 
 [ext_resource type="PackedScene" uid="uid://dm3cy2hvdqrhf" path="res://res/models/hammer.gltf" id="1_2hohk"]
 [ext_resource type="Script" path="res://game/hammer/hammer.gd" id="2_w7vqi"]
 [ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="2_xdxsa"]
+[ext_resource type="ArrayMesh" uid="uid://oq8q6ln0ugnl" path="res://res/meshes/cube.mesh" id="3_m1x3a"]
+[ext_resource type="ArrayMesh" uid="uid://bfakvfifrl6en" path="res://res/meshes/cube2.mesh" id="4_avvi0"]
+[ext_resource type="ArrayMesh" uid="uid://cwbfx1hc4e237" path="res://res/meshes/cube3.mesh" id="5_ahhvh"]
+[ext_resource type="ArrayMesh" uid="uid://d4mt0o60i10ou" path="res://res/meshes/cube4.mesh" id="6_phbi6"]
+[ext_resource type="ArrayMesh" uid="uid://bejiw85kclqnw" path="res://res/meshes/cube5.mesh" id="7_kx2px"]
+[ext_resource type="ArrayMesh" uid="uid://cmtudaa6tpvih" path="res://res/meshes/cube6.mesh" id="8_rqjps"]
+[ext_resource type="ArrayMesh" uid="uid://c8noh758ef7j2" path="res://res/meshes/cube7.mesh" id="9_nww7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_avrmr"]
 size = Vector3(0.476501, 0.446869, 1.29443)
@@ -16,24 +23,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497697, 0.270669, -0.49694
 
 [node name="cube" parent="Node" index="0"]
 visibility_range_end = 100.0
+mesh = ExtResource("3_m1x3a")
 
 [node name="cube2" parent="Node" index="1"]
 visibility_range_end = 100.0
+mesh = ExtResource("4_avvi0")
 
 [node name="cube3" parent="Node" index="2"]
 visibility_range_end = 100.0
+mesh = ExtResource("5_ahhvh")
 
 [node name="cube4" parent="Node" index="3"]
 visibility_range_end = 100.0
+mesh = ExtResource("6_phbi6")
 
 [node name="cube5" parent="Node" index="4"]
 visibility_range_end = 100.0
+mesh = ExtResource("7_kx2px")
 
 [node name="cube6" parent="Node" index="5"]
 visibility_range_end = 100.0
+mesh = ExtResource("8_rqjps")
 
 [node name="cube7" parent="Node" index="6"]
 visibility_range_end = 100.0
+mesh = ExtResource("9_nww7k")
 
 [node name="VisibleOnScreenNotifier3D" parent="." index="1" instance=ExtResource("2_xdxsa")]
 

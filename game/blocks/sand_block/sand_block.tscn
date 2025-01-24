@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://rpvpu6naai4p"]
+
+[ext_resource type="PackedScene" uid="uid://cnrwwyxubwa0l" path="res://scene.gltf" id="1_8i78j"]
+[ext_resource type="Script" path="res://game/blocks/sand_block/sand_block.gd" id="2_iyq1j"]
+[ext_resource type="ArrayMesh" uid="uid://bhk8n8u5rsjyy" path="res://res/meshes/sand.mesh" id="3_sy13j"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bbyr2j0pbyxxd" path="res://game/blocks/block.occ" id="4_fscuq"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="5_36dfm"]
+[ext_resource type="Material" uid="uid://dg31xcwbvvurh" path="res://res/materials/sand.material" id="7_ge6nm"]
+[ext_resource type="Material" uid="uid://dwvshcmdsyqhg" path="res://res/materials/flash.material" id="8_eq4cm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nsgqw"]
+points = PackedVector3Array(168.715, 160.416, 160.416, 168.715, 160.416, -160.416, -168.715, 160.416, 160.416, 168.715, -160.416, 160.416, 168.715, -160.416, -160.416, -168.715, 160.416, -160.416, -168.715, -160.416, 160.416, -168.715, -160.416, -160.416)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gv32a"]
+size = Vector3(1.97229, 1.53137, 1.96558)
+
+[sub_resource type="Animation" id="Animation_kj76h"]
+resource_name = "flashing"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/root_1/_0/Object_5:surface_material_override/0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.000200003, -0.000100002, 0, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_ge6nm"), ExtResource("7_ge6nm"), ExtResource("7_ge6nm"), ExtResource("8_eq4cm")]
+}
+
+[sub_resource type="Animation" id="Animation_wl80t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/root_1/_0/Object_5:surface_material_override/0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlmb5"]
+_data = {
+"RESET": SubResource("Animation_wl80t"),
+"flashing": SubResource("Animation_kj76h")
+}
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_8i78j")]
+script = ExtResource("2_iyq1j")
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="GLTF_SceneRootNode" parent="Sketchfab_model/root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="_0" parent="Sketchfab_model/root/GLTF_SceneRootNode/root_1" index="0"]
+transform = Transform3D(0.001, 0, 0, 0, 0.000999999, 0, 0, 0, 0.001, 0, 0, 0)
+
+[node name="Object_5" parent="Sketchfab_model/root/GLTF_SceneRootNode/root_1/_0" index="0"]
+transform = Transform3D(5.985, 0, 0, 0, 6.235, 0, 0, 0, 6.235, 37.9952, 0, 0)
+visibility_range_end = 100.0
+mesh = ExtResource("3_sy13j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/root_1/_0/Object_5" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/root_1/_0/Object_5/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_nsgqw")
+
+[node name="FallDownArea" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FallDownArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0401001, 0.265686, 0.0147705)
+shape = SubResource("BoxShape3D_gv32a")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0456152, 0, 0)
+occluder = ExtResource("4_fscuq")
+
+[node name="VisibleOnScreenNotifier3D" parent="." index="3" node_paths=PackedStringArray("meshes") instance=ExtResource("5_36dfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0367073, 0.0121436, 0)
+meshes = [NodePath("../Sketchfab_model/root/GLTF_SceneRootNode/root_1/_0/Object_5")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_wlmb5")
+}
+
+[connection signal="body_entered" from="FallDownArea" to="." method="_on_fall_down_area_body_entered"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1uc3djuj8c5u"]
+
+[ext_resource type="ArrayMesh" uid="uid://xevdp14ohflx" path="res://res/meshes/saw.tres" id="1_4wlgu"]
+[ext_resource type="Script" path="res://game/trap_saw/trap_saw.gd" id="1_xdfxe"]
+[ext_resource type="ArrayMesh" uid="uid://b43nexyj6jy6y" path="res://res/meshes/wall_rail.mesh" id="2_yuiso"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_87o1w"]
+height = 0.288255
+radius = 2.44775
+
+[sub_resource type="Animation" id="Animation_c8ih1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saw:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6vgxy"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saw:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.91986), Vector3(0, 0, -1.91986)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1e0a"]
+_data = {
+"RESET": SubResource("Animation_c8ih1"),
+"default": SubResource("Animation_6vgxy")
+}
+
+[node name="TrapSaw" type="Node3D"]
+script = ExtResource("1_xdfxe")
+
+[node name="Saw" type="MeshInstance3D" parent="."]
+visibility_range_end = 100.0
+mesh = ExtResource("1_4wlgu")
+
+[node name="SawDeadArea" type="Area3D" parent="Saw"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Saw/SawDeadArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_87o1w")
+
+[node name="WallRail" type="MeshInstance3D" parent="."]
+visibility_range_end = 100.0
+mesh = ExtResource("2_yuiso")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p1e0a")
+}
+
+[connection signal="body_entered" from="Saw/SawDeadArea" to="." method="_on_saw_dead_area_body_entered"]

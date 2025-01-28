@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://loqksscemlor"]
+
+[ext_resource type="Shader" path="res://res/shaders/squares.gdshader" id="1_nfcs7"]
+[ext_resource type="Script" path="res://game/finish_line/finish_line.gd" id="1_tj5b0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqvuc"]
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_gx33w"]
+material = SubResource("StandardMaterial3D_aqvuc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clbqf"]
+render_priority = 0
+shader = ExtResource("1_nfcs7")
+shader_parameter/subdivisions = 37.0
+shader_parameter/grid_width = 0.0
+shader_parameter/background_color = Color(1, 1, 1, 1)
+shader_parameter/background_color_two = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/grid_color = Color(0, 0, 0, 1)
+shader_parameter/dashed_scale_x = 0.02
+shader_parameter/dashed_scale_y = 0.02
+shader_parameter/dashed_count_x = 1.0
+shader_parameter/dashed_count_y = 1.0
+shader_parameter/point_width = 0.021
+shader_parameter/point_color = Color(0, 0, 0, 1)
+shader_parameter/point_scale_x = 0.05
+shader_parameter/point_scale_y = 0.05
+shader_parameter/inside_width = 0.0
+shader_parameter/inside_subdivisions = 6.0
+shader_parameter/inside_color = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/in_dashed_scale_x = 0.3
+shader_parameter/in_dashed_scale_y = 0.3
+shader_parameter/in_dashed_count_x = 6.0
+shader_parameter/in_dashed_count_y = 6.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ybl2y"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("ShaderMaterial_clbqf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gr80"]
+size = Vector3(7.05475, 5.5415, 1)
+
+[node name="FinishLine" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_tj5b0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.200583, 0, 0)
+visibility_range_end = 200.0
+mesh = SubResource("BoxMesh_gx33w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 6, 0, 0, 0, 0.3, 7.04374, 0, 0)
+visibility_range_end = 200.0
+mesh = SubResource("BoxMesh_gx33w")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1264, 0, 0, 0, 2.01103, 0, 0, 0, 0.3, 0.963455, 1.75993, 0)
+visibility_range_end = 200.0
+mesh = SubResource("BoxMesh_ybl2y")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1264, 0, 0, 0, 2.01103, 0, 0, 0, 0.3, 5.84456, 1.75993, 0)
+visibility_range_end = 200.0
+mesh = SubResource("BoxMesh_ybl2y")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1264, 0, 0, 0, 2.01103, 0, 0, 0, 0.3, 3.74112, 1.75993, 0)
+visibility_range_end = 200.0
+mesh = SubResource("BoxMesh_ybl2y")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.1264, 0, 0, 0, 2.01103, 0, 0, 0, 0.3, 1.62864, 1.75993, 0)
+visibility_range_end = 200.0
+mesh = SubResource("BoxMesh_ybl2y")
+
+[node name="FinishArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FinishArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46072, 0.0547675, 0.0146818)
+shape = SubResource("BoxShape3D_1gr80")
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]

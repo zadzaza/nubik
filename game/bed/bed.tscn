@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwkkils6c18u7"]
+
+[ext_resource type="PackedScene" uid="uid://ckhxufffraryk" path="res://res/models/Bed.fbx" id="1_xmu63"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="2_qci5q"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cflpb"]
+points = PackedVector3Array(0.01, 0.005, 0.005625, 0.01, -0.005, 0.005625, 0.01, 0.005, 0, -0.01, 0.005, 0.005625, 0.01, -0.005, 0, -0.01, -0.005, 0.005625, -0.01, 0.005, 0, -0.01, -0.005, 0)
+
+[node name="Bed" instance=ExtResource("1_xmu63")]
+
+[node name="Bed" parent="." index="0"]
+transform = Transform3D(203, 0, 0, 0, -8.87341e-06, 203, 0, -203, -8.87341e-06, 0, 0, 0)
+visibility_range_end = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_cflpb")
+
+[node name="VisibleOnScreenNotifier3D" parent="." index="1" node_paths=PackedStringArray("meshes") instance=ExtResource("2_qci5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45223, 0.147668)
+aabb = AABB(-2.06989, -1.57792, -1.15431, 4.13979, 1.35287, 2.06155)
+meshes = [NodePath("../Bed")]

@@ -9,7 +9,7 @@
 [node name="GrassBlock" instance=ExtResource("1_u1cn7")]
 
 [node name="Grass_Block_Cube" parent="." index="0"]
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("2_ybebx")
 
 [node name="BlockBody" parent="." index="1" instance=ExtResource("2_687jv")]

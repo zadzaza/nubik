@@ -16,7 +16,7 @@ func _on_fall_down_area_body_entered(player: Player) -> void:
 func fall():
 	var prev_pos = self.global_position
 	anim_player.play("flashing")
-	await get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(1.0).timeout
 	anim_player.play("RESET")
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", global_position.y-30, 1.5).from_current()

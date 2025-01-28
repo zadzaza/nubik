@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://oseb072y34uv"]
+
+[ext_resource type="PackedScene" uid="uid://bed5f0eg5ergn" path="res://res/models/model.gltf" id="1_jfvtj"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="2_edaeh"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p3d5w"]
+points = PackedVector3Array(7, 7, 7, 7, 7, -7, -7, 7, 7, 7, -7, 7, 7, -7, -7, -7, 7, -7, -7, -7, 7, -7, -7, -7)
+
+[node name="Crate" instance=ExtResource("1_jfvtj")]
+
+[node name="f58d42df-8b23-85eb-fbff-378b506993e2" parent="." index="0"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="bbfe5111-ca02-b4bf-884b-416531dbc081" parent="." index="1"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bbfe5111-ca02-b4bf-884b-416531dbc081" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bbfe5111-ca02-b4bf-884b-416531dbc081/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_p3d5w")
+
+[node name="12077ed3-f6ec-0821-3a63-ea3872931636" parent="." index="2"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="0def426e-61ed-e651-bdac-9f6774a058bf" parent="." index="3"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="13e582db-6c9c-7f89-076d-0509db2daa94" parent="." index="4"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="e3bdf29f-8a4e-3877-6369-a656c6e37810" parent="." index="5"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="f535735c-aa0d-f289-5d14-78a9f6b7cd2b" parent="." index="6"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="fd7be2dd-7641-5aae-01d7-6ce5a286b2ec" parent="." index="7"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="eb185cf5-6aba-43bd-86fb-49c2c4c340a2" parent="." index="8"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="ec77886d-9067-236c-1f7d-aef9f0fdb426" parent="." index="9"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="c53aa1dd-37af-11c0-3951-d8c69c5b435b" parent="." index="10"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="1599d331-5b4e-2f9e-c1b7-7c98cbd76d14" parent="." index="11"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="cbe54f42-0aa7-7396-84ed-c9293d4cec36" parent="." index="12"]
+transform = Transform3D(0.151, 0, 0, 0, 0.151, 0, 0, 0, 0.151, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="VisibleOnScreenNotifier3D" parent="." index="13" node_paths=PackedStringArray("meshes") instance=ExtResource("2_edaeh")]
+transform = Transform3D(1.405, 0, 0, 0, 1.405, 0, 0, 0, 1.405, 0.0777849, 0.0187567, 0)
+meshes = [NodePath("../f58d42df-8b23-85eb-fbff-378b506993e2"), NodePath("../bbfe5111-ca02-b4bf-884b-416531dbc081"), NodePath("../12077ed3-f6ec-0821-3a63-ea3872931636"), NodePath("../0def426e-61ed-e651-bdac-9f6774a058bf"), NodePath("../13e582db-6c9c-7f89-076d-0509db2daa94"), NodePath("../e3bdf29f-8a4e-3877-6369-a656c6e37810"), NodePath("../f535735c-aa0d-f289-5d14-78a9f6b7cd2b"), NodePath("../fd7be2dd-7641-5aae-01d7-6ce5a286b2ec"), NodePath("../eb185cf5-6aba-43bd-86fb-49c2c4c340a2"), NodePath("../ec77886d-9067-236c-1f7d-aef9f0fdb426"), NodePath("../c53aa1dd-37af-11c0-3951-d8c69c5b435b"), NodePath("../1599d331-5b4e-2f9e-c1b7-7c98cbd76d14"), NodePath("../cbe54f42-0aa7-7396-84ed-c9293d4cec36")]

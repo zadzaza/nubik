@@ -6,7 +6,7 @@ extends Node3D
 @onready var saw: MeshInstance3D = $Saw
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var max = 7.5
+var max = 8.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

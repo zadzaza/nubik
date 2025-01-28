@@ -14,12 +14,12 @@ script = ExtResource("2_ycq1r")
 
 [node name="Body" parent="." index="0"]
 transform = Transform3D(73, 0, 0, 0, -3.17467e-06, 72.487, 0, -72.628, -3.16851e-06, 0, 0, 0)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("3_v0ir0")
 
 [node name="Slime" parent="." index="1"]
 transform = Transform3D(100.492, 0, 0, 0, -4.37025e-06, 99.7856, 0, -99.9797, -4.36177e-06, 0.00594631, -0.00955048, -0.00359839)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("4_1kcch")
 
 [node name="BlockBody" parent="." index="2" instance=ExtResource("2_w2cwc")]

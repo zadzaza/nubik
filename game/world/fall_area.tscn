@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkvdeohsu6821"]
+
+[ext_resource type="Script" path="res://game/world/fall_area.gd" id="1_c4adi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2q1ho"]
+size = Vector3(569.082, 0.001, 580.167)
+
+[node name="FallArea" type="Area3D"]
+script = ExtResource("1_c4adi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8324, -29.3046, -5.34409)
+shape = SubResource("BoxShape3D_2q1ho")
+
+[connection signal="body_entered" from="." to="." method="_on_fall_area_body_entered"]

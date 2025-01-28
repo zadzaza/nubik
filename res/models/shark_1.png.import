@@ -2,26 +2,30 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi6gxe2b1coeb"
-path="res://.godot/imported/palette_baseColor.png-d50d92d8e66e8bd77b2bc9619928a912.ctex"
+uid="uid://ca83vvgiqoki3"
+path.s3tc="res://.godot/imported/shark_1.png-6def9e5da622d23fdba3c22fea0c3101.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "f1d3ff8443297732862df21dc4e57262"
 }
 
 [deps]
 
-source_file="res://textures/palette_baseColor.png"
-dest_files=["res://.godot/imported/palette_baseColor.png-d50d92d8e66e8bd77b2bc9619928a912.ctex"]
+source_file="res://res/models/shark_1.png"
+dest_files=["res://.godot/imported/shark_1.png-6def9e5da622d23fdba3c22fea0c3101.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +35,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

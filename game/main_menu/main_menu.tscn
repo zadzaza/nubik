@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6d12ooqgqphi"]
+
+[ext_resource type="Script" path="res://game/main_menu/main_menu.gd" id="1_nu3sh"]
+[ext_resource type="Texture2D" uid="uid://15rt1cd1hdtc" path="res://textures/dirt.png" id="1_y2enl"]
+[ext_resource type="PackedScene" uid="uid://dlt0bsmeykw0j" path="res://game/main_menu/choose_level_btn.tscn" id="3_l5avf"]
+[ext_resource type="PackedScene" uid="uid://cwoxu1yum7apu" path="res://game/levels/level1.tscn" id="4_qqfeh"]
+[ext_resource type="PackedScene" uid="uid://cp8a8x7cfqdlg" path="res://game/levels/level2.tscn" id="5_vsynd"]
+[ext_resource type="PackedScene" uid="uid://c57762vwkiaoh" path="res://game/levels/level3.tscn" id="6_ysnhr"]
+[ext_resource type="PackedScene" uid="uid://3gr78ro45ltw" path="res://game/levels/level5.tscn" id="7_dauvt"]
+[ext_resource type="PackedScene" uid="uid://vv102j8qk4em" path="res://game/levels/level6.tscn" id="8_iddaf"]
+[ext_resource type="PackedScene" uid="uid://bwufwie7qi2wb" path="res://game/levels/level7.tscn" id="9_vpkbm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nu3sh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.43134, 0.43134, 0.43134, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y2enl")
+stretch_mode = 1
+
+[node name="ToLevels" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
+text = " ▷"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="ChooseLevelBtn" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 1
+level_to_start = ExtResource("4_qqfeh")
+
+[node name="ChooseLevelBtn2" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 2
+level_to_start = ExtResource("5_vsynd")
+
+[node name="ChooseLevelBtn3" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 3
+level_to_start = ExtResource("6_ysnhr")
+
+[node name="ChooseLevelBtn4" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 4
+level_to_start = ExtResource("7_dauvt")
+
+[node name="ChooseLevelBtn5" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 5
+level_to_start = ExtResource("7_dauvt")
+
+[node name="ChooseLevelBtn6" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 6
+level_to_start = ExtResource("8_iddaf")
+
+[node name="ChooseLevelBtn7" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 7
+level_to_start = ExtResource("9_vpkbm")
+
+[connection signal="pressed" from="ToLevels" to="." method="_on_to_levels_pressed"]

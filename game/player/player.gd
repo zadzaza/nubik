@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody3D
 
 @export_category("Player")
-@export_range(1, 35, 1) var max_speed: float = 6 # m/s
+@export_range(1, 35, 1) var max_speed: float = 7 # m/s
 @export_range(1, 35, 1) var sprint_speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 35 # m/s^2
 var speed = max_speed
@@ -30,12 +30,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		capture_mouse()
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
-	#if event is InputEventScreenDrag:
-		#look_dir = event.relative * 0.001
-		#if mouse_captured: _rotate_camera()
-	if event is InputEventMouseButton:
-		if event.is_double_click():
-			jumping = true
+	#if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		#if event is InputEventScreenDrag:
+			#look_dir = event.relative
+			#if mouse_captured: _rotate_camera()
+	#if event is InputEventMouseButton:
+		#if event.is_double_click():
+			#jumping = true
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
@@ -69,10 +70,10 @@ func _walk(delta: float) -> Vector3:
 	var _forward: Vector3 = camera.global_transform.basis * Vector3(move_dir.x, 0, move_dir.y)
 	var walk_dir: Vector3 = Vector3(_forward.x, 0, _forward.z).normalized()
 	walk_vel = walk_vel.move_toward(walk_dir * speed * move_dir.length(), acceleration * delta)
-	if Input.is_action_pressed("sprint") and is_on_floor() and Input.is_action_pressed("up"): 
-		speed = sprint_speed
-	if Input.is_action_just_released("sprint"): 
-		speed = max_speed
+	#if Input.is_action_pressed("sprint") and is_on_floor() and Input.is_action_pressed("up"): 
+		#speed = sprint_speed
+	#if Input.is_action_just_released("sprint"): 
+		#speed = max_speed
 	return walk_vel
 
 func _gravity(delta: float) -> Vector3:

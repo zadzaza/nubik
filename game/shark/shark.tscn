@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://65uakgoorlu3"]
+
+[ext_resource type="PackedScene" uid="uid://drxtgjoln4o5x" path="res://res/models/shark.gltf" id="1_3p8ck"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhp0j"]
+size = Vector3(9.04428, 8.94678, 40.1763)
+
+[node name="Shark" instance=ExtResource("1_3p8ck")]
+transform = Transform3D(0.345, 0, 0, 0, 0.345, 0, 0, 0, 0.345, 0, 0, 0)
+
+[node name="46911318-75d4-3608-bd04-2ada9d0b7186" parent="." index="0"]
+visibility_range_end = 200.0
+
+[node name="ebef13dd-687e-5e7c-c8a4-dc443a3e19ad" parent="." index="1"]
+visibility_range_end = 200.0
+
+[node name="b44e6086-02bc-5670-6e39-d45e6a8ab85a" parent="." index="2"]
+visibility_range_end = 200.0
+
+[node name="babf630a-6015-dbdd-7bf5-43bb122fbb87" parent="." index="3"]
+visibility_range_end = 200.0
+
+[node name="6537dc93-93ab-790d-5020-0a80fd75573c" parent="." index="4"]
+visibility_range_end = 200.0
+
+[node name="170fdf53-338a-86ed-6fc3-b287a0ca5937" parent="." index="5"]
+visibility_range_end = 200.0
+
+[node name="1b6305c1-c73e-bbea-9ff2-f233f3e85759" parent="." index="6"]
+visibility_range_end = 200.0
+
+[node name="fb04377f-cd36-5b19-39bc-acfb25910fdf" parent="." index="7"]
+visibility_range_end = 200.0
+
+[node name="c7a9a0ab-3b47-9a44-9b44-28ee73174ec6" parent="." index="8"]
+visibility_range_end = 200.0
+
+[node name="0b1461de-7d61-ab91-47f9-86979a993b34" parent="." index="9"]
+visibility_range_end = 200.0
+
+[node name="a2dca53d-b9b9-a452-31b6-d874707b293e" parent="." index="10"]
+visibility_range_end = 200.0
+
+[node name="72bc81ef-cbe2-0009-8fbf-3d0907a5b92d" parent="." index="11"]
+visibility_range_end = 200.0
+
+[node name="5aecea17-244d-1d83-2a61-f62d0b1ff769" parent="." index="12"]
+visibility_range_end = 200.0
+
+[node name="c7dd52c8-58e8-f932-18c2-5439221f8a62" parent="." index="13"]
+visibility_range_end = 200.0
+
+[node name="92efd548-05ce-f56a-58be-3d04c64895d0" parent="." index="14"]
+visibility_range_end = 200.0
+
+[node name="2f7c24bb-3f21-477e-66a9-d15bf98da9c1" parent="." index="15"]
+visibility_range_end = 200.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.21193, 3.97339, 5.39965)
+shape = SubResource("BoxShape3D_jhp0j")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlt0bsmeykw0j"]
+
+[ext_resource type="Script" path="res://game/main_menu/choose_level_btn.gd" id="1_qvogp"]
+
+[node name="ChooseLevelBtn" type="Button"]
+custom_minimum_size = Vector2(150, 150)
+theme_override_font_sizes/font_size = 66
+text = " ▷"
+script = ExtResource("1_qvogp")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsjlvwlelow7"]
+
+[ext_resource type="PackedScene" uid="uid://bkvdeohsu6821" path="res://game/world/fall_area.tscn" id="1_7fk47"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t370b"]
+sky_top_color = Color(0.285242, 0.418817, 0.873734, 1)
+sky_horizon_color = Color(0.461658, 0.659518, 0.959453, 1)
+ground_bottom_color = Color(0.73538, 0.725758, 0.73216, 1)
+ground_horizon_color = Color(0.462745, 0.658824, 0.960784, 1)
+ground_curve = 0.044383
+energy_multiplier = 1.15
+
+[sub_resource type="Sky" id="Sky_q13r3"]
+sky_material = SubResource("ProceduralSkyMaterial_t370b")
+
+[sub_resource type="Environment" id="Environment_bh1jy"]
+background_mode = 2
+sky = SubResource("Sky_q13r3")
+ambient_light_color = Color(0.765489, 0.375009, 0.167551, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bh1jy")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.920942, -1.50954e-07, -0.389699, 0.351309, -0.432802, 0.830219, -0.168663, -0.901489, -0.398586, 0, 0, 0)
+rotation_order = 4
+light_energy = 2.582
+light_bake_mode = 0
+shadow_opacity = 0.75
+shadow_blur = 5.0
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="FallArea" parent="." instance=ExtResource("1_7fk47")]

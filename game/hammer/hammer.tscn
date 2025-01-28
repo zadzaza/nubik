@@ -20,37 +20,37 @@ script = ExtResource("2_w7vqi")
 
 [node name="cube" parent="Node" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("3_m1x3a")
 
 [node name="cube2" parent="Node" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("4_avvi0")
 
 [node name="cube3" parent="Node" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("5_ahhvh")
 
 [node name="cube4" parent="Node" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("6_phbi6")
 
 [node name="cube5" parent="Node" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("7_kx2px")
 
 [node name="cube6" parent="Node" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("8_rqjps")
 
 [node name="cube7" parent="Node" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501274, 0.269406, -0.502249)
-visibility_range_end = 100.0
+visibility_range_end = 200.0
 mesh = ExtResource("9_nww7k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node" index="8"]

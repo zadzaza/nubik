@@ -7,9 +7,7 @@ extends Node3D
 @onready var node: Node3D = $Node
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	
+func _ready() -> void:	
 	if is_from_max:
 		play_anim(range_min, range_max)
 	else:

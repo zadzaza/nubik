@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://djmqoahyk24e0"]
+[gd_scene load_steps=7 format=3 uid="uid://djmqoahyk24e0"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_a4ryj"]
+[ext_resource type="Texture2D" uid="uid://b0780yyksa7ai" path="res://textures/exit.svg" id="2_nkqhj"]
+[ext_resource type="Script" path="res://addons/pause-manager/scripts/pause_manager.gd" id="3_ssu65"]
+[ext_resource type="Texture2D" uid="uid://c7fa3kd5oc01r" path="res://textures/strelka.png" id="3_thk7p"]
+[ext_resource type="AudioStream" uid="uid://c3lln1a3u2mdu" path="res://new_audio_stream_mp_3.tres" id="5_qj5we"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffewc"]
 radius = 1.13843
@@ -15,10 +19,10 @@ shape = SubResource("CapsuleShape3D_ffewc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78415, 0)
-fov = 90.0
+fov = 85.0
 
 [node name="Control" type="Control" parent="."]
-modulate = Color(100, 100, 100, 1)
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +31,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Scope" type="Panel" parent="Control"]
+modulate = Color(100, 100, 100, 1)
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 8
@@ -41,3 +46,76 @@ offset_right = 0.5
 offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Pause" type="HBoxContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="ExitBtn" type="Button" parent="Control/Pause"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+
+[node name="TextureRect" type="TextureRect" parent="Control/Pause/ExitBtn"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.09
+offset_top = -50.5
+offset_right = 40.91
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nkqhj")
+flip_h = true
+
+[node name="ContinueBtn" type="Button" parent="Control/Pause"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+
+[node name="TextureRect" type="TextureRect" parent="Control/Pause/ContinueBtn"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_thk7p")
+
+[node name="PauseManager" type="Node" parent="Control"]
+script = ExtResource("3_ssu65")
+action_names = Array[StringName]([&"exit"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qj5we")
+volume_db = -5.0
+
+[connection signal="pressed" from="Control/Pause/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="Control/Pause/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pause" from="Control/PauseManager" to="." method="_on_pause_manager_pause"]
+[connection signal="resume" from="Control/PauseManager" to="." method="_on_pause_manager_resume"]
+[connection signal="toggle" from="Control/PauseManager" to="." method="_on_pause_manager_toggle"]

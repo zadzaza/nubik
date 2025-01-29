@@ -350,6 +350,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.733, 31.5166, 5.50141)
 
 [node name="FinishLine" parent="Platforms" instance=ExtResource("8_xkaa0")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -156.527, 39.3957, 1.61051)
+next_complete_level = 7
 
 [node name="SlimeBlock3" parent="Platforms" instance=ExtResource("6_rgild")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.743, 24.4918, 7.72312)

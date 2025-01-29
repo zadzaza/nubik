@@ -22,27 +22,42 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
-@onready var camera: Camera3D = $Camera3D
+var can_play: bool = false
 
+@onready var camera: Camera3D = $Camera3D
+@onready var pause_manager: PauseManager = $Control/PauseManager
+@onready var scope: Panel = $Control/Scope
+@onready var pause: HBoxContainer = $Control/Pause
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
+# To track interstitial state changes, connect to the signal
+func _ready():
+	Bridge.advertisement.connect("interstitial_state_changed", Callable(self, "_on_interstitial_state_changed"))
+	audio_stream_player.play(0)
+	
+func _on_interstitial_state_changed(state):
+	match state:
+		"loading":
+			can_play = false
+			print("loading")
+		"opened":
+			can_play = false
+			print("opened")
+		"closed":
+			print("closed")
+			can_play = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		capture_mouse()
-		look_dir = event.relative * 0.001
-		if mouse_captured: _rotate_camera()
-	#if OS.has_feature("web_android") or OS.has_feature("web_ios"):
-		#if event is InputEventScreenDrag:
-			#look_dir = event.relative
-			#if mouse_captured: _rotate_camera()
-	#if event is InputEventMouseButton:
-		#if event.is_double_click():
-			#jumping = true
-	
+		if can_play:
+			capture_mouse()
+			look_dir = event.relative * 0.001
+			if mouse_captured: _rotate_camera()
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		jumping = true
 		
-	if mouse_captured: _handle_joypad_camera_rotation(delta)
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 	move_and_slide()
 
@@ -57,13 +72,6 @@ func release_mouse() -> void:
 func _rotate_camera(sens_mod: float = 1.0) -> void:
 	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
 	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
-
-func _handle_joypad_camera_rotation(delta: float, sens_mod: float = 1.0) -> void:
-	var joypad_dir: Vector2 = Input.get_vector("look_left","look_right","look_up","look_down")
-	if joypad_dir.length() > 0:
-		look_dir += joypad_dir * delta
-		_rotate_camera(sens_mod)
-		look_dir = Vector2.ZERO
 
 func _walk(delta: float) -> Vector3:
 	move_dir = Input.get_vector("left", "right", "up", "down")
@@ -88,3 +96,21 @@ func _jump(delta: float) -> Vector3:
 	jump_vel = Vector3.ZERO if is_on_floor() else jump_vel.move_toward(Vector3.ZERO, gravity * delta)
 	jump_height = max_jump_height
 	return jump_vel
+
+func _on_pause_manager_pause() -> void:
+	release_mouse()
+	scope.hide()
+	pause.show()
+	audio_stream_player.playing = false
+
+func _on_pause_manager_resume() -> void:
+	scope.show()
+	pause.hide()
+	audio_stream_player.playing = true
+
+func _on_exit_btn_pressed() -> void:
+	pause_manager._resume()
+	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
+
+func _on_continue_btn_pressed() -> void:
+	pause_manager._resume()

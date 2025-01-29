@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://loqksscemlor" path="res://game/finish_line/finish_line.tscn" id="6_lhuv8"]
 [ext_resource type="PackedScene" uid="uid://vsjlvwlelow7" path="res://game/world/world.tscn" id="7_4bdl1"]
 
-[node name="Level5" type="Node3D"]
+[node name="Level3" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_b7i2k")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.69205, 2.99556, 4.8394)
@@ -248,5 +248,6 @@ is_from_max = false
 
 [node name="FinishLine" parent="." instance=ExtResource("6_lhuv8")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 96.4601, 51.6555, 11.7524)
+next_complete_level = 4
 
 [node name="World" parent="." instance=ExtResource("7_4bdl1")]

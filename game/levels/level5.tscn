@@ -801,6 +801,7 @@ speed = 0.6
 
 [node name="FinishLine" parent="Platforms1" instance=ExtResource("4_8xux4")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -5.81195, 7.95596, 0.925967)
+next_complete_level = 6
 
 [node name="Platforms2" type="Node3D" parent="."]
 

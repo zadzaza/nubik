@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djmqoahyk24e0" path="res://game/player/player.tscn" id="2_ss6uf"]
 [ext_resource type="PackedScene" uid="uid://vsjlvwlelow7" path="res://game/world/world.tscn" id="4_3i1pp"]
 
-[node name="Level3" type="Node3D"]
+[node name="Level1" type="Node3D"]
 
 [node name="Platforms" type="Node3D" parent="."]
 
@@ -244,6 +244,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.97788)
 
 [node name="FinishLine" parent="Platforms" instance=ExtResource("2_6kos4")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 2.10187, 35.7536, -1.963)
+next_complete_level = 2
 
 [node name="Player" parent="." instance=ExtResource("2_ss6uf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.69205, 2.99556, 4.8394)

@@ -22,8 +22,6 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
-var can_play: bool = false
-
 @onready var camera: Camera3D = $Camera3D
 @onready var pause_manager: PauseManager = $Control/PauseManager
 @onready var scope: Panel = $Control/Scope
@@ -34,25 +32,12 @@ var can_play: bool = false
 func _ready():
 	Bridge.advertisement.connect("interstitial_state_changed", Callable(self, "_on_interstitial_state_changed"))
 	audio_stream_player.play(0)
-	
-func _on_interstitial_state_changed(state):
-	match state:
-		"loading":
-			can_play = false
-			print("loading")
-		"opened":
-			can_play = false
-			print("opened")
-		"closed":
-			print("closed")
-			can_play = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if can_play:
-			capture_mouse()
-			look_dir = event.relative * 0.001
-			if mouse_captured: _rotate_camera()
+		capture_mouse()
+		look_dir = event.relative * 0.001
+		if mouse_captured: _rotate_camera()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):

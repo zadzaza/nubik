@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6d12ooqgqphi"]
+[gd_scene load_steps=13 format=3 uid="uid://c6d12ooqgqphi"]
 
 [ext_resource type="Script" path="res://game/main_menu/main_menu.gd" id="1_nu3sh"]
 [ext_resource type="Texture2D" uid="uid://15rt1cd1hdtc" path="res://textures/dirt.png" id="1_y2enl"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c57762vwkiaoh" path="res://game/levels/level3.tscn" id="6_ysnhr"]
 [ext_resource type="PackedScene" uid="uid://3gr78ro45ltw" path="res://game/levels/level5.tscn" id="7_dauvt"]
 [ext_resource type="PackedScene" uid="uid://vv102j8qk4em" path="res://game/levels/level6.tscn" id="8_iddaf"]
+[ext_resource type="PackedScene" uid="uid://y738jjce4lg0" path="res://game/levels/level4.tscn" id="8_u5e1u"]
 [ext_resource type="PackedScene" uid="uid://bwufwie7qi2wb" path="res://game/levels/level7.tscn" id="9_vpkbm"]
+[ext_resource type="PackedScene" uid="uid://duhv60jr43cpi" path="res://game/levels/level8.tscn" id="12_5bi0e"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -100,7 +102,7 @@ level_to_start = ExtResource("6_ysnhr")
 layout_mode = 2
 text = " "
 number = 4
-level_to_start = ExtResource("7_dauvt")
+level_to_start = ExtResource("8_u5e1u")
 
 [node name="level5" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
 layout_mode = 2
@@ -119,5 +121,11 @@ layout_mode = 2
 text = " "
 number = 7
 level_to_start = ExtResource("9_vpkbm")
+
+[node name="level8" parent="HBoxContainer" instance=ExtResource("3_l5avf")]
+layout_mode = 2
+text = " "
+number = 8
+level_to_start = ExtResource("12_5bi0e")
 
 [connection signal="pressed" from="ToLevels" to="." method="_on_to_levels_pressed"]

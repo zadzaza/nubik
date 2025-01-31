@@ -1,6 +1,5 @@
 [gd_scene load_steps=12 format=3 uid="uid://3gr78ro45ltw"]
 
-[ext_resource type="PackedScene" uid="uid://djmqoahyk24e0" path="res://game/player/player.tscn" id="1_tk4ma"]
 [ext_resource type="PackedScene" uid="uid://c1j3ocbv511i6" path="res://game/blocks/grass_block/grass_block.tscn" id="2_x0w7r"]
 [ext_resource type="PackedScene" uid="uid://c1uc3djuj8c5u" path="res://game/trap_saw/trap_saw.tscn" id="3_djasv"]
 [ext_resource type="PackedScene" uid="uid://loqksscemlor" path="res://game/finish_line/finish_line.tscn" id="4_8xux4"]
@@ -11,11 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://rpvpu6naai4p" path="res://game/blocks/sand_block/sand_block.tscn" id="9_dpga7"]
 [ext_resource type="PackedScene" uid="uid://dfw5gr85l07rd" path="res://game/hammer/hammer.tscn" id="10_gvdsg"]
 [ext_resource type="PackedScene" uid="uid://vsjlvwlelow7" path="res://game/world/world.tscn" id="11_1ovim"]
+[ext_resource type="PackedScene" uid="uid://djmqoahyk24e0" path="res://game/player/player.tscn" id="11_e5wji"]
 
-[node name="Level5" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_tk4ma")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.44813, 2.09667, 7.55604)
+[node name="Level4" type="Node3D"]
 
 [node name="Platforms1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.765, 18.2856, 0)
@@ -934,3 +931,6 @@ is_from_max = false
 transform = Transform3D(-5.93321, 0, -0.89276, 0, 6, 0, 0.89276, 0, -5.93321, -10.7738, 15.0486, 5.16857)
 
 [node name="World" parent="." instance=ExtResource("11_1ovim")]
+
+[node name="Player" parent="." instance=ExtResource("11_e5wji")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.55906, 0.73875, 7.29956)

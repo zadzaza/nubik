@@ -10,8 +10,11 @@ func _ready() -> void:
 	Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
 	Bridge.advertisement.set_minimum_delay_between_interstitial(30)
 	for b in h_box_container.get_children():
-		if SaveManager.levels_complete[b.name] == true:
-			b.set_free()
+		if SaveManager.levels_complete.has(b.name):
+			if SaveManager.levels_complete[b.name] == true:
+				b.set_free()
+			else:
+				b.set_close()
 		else:
 			b.set_close()
 	

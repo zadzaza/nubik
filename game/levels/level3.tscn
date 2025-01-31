@@ -228,10 +228,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.6997, 28.0656, 4.25296)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.7781, 32.7765, 6.34934)
 
 [node name="SlimeBlock8" parent="Platforms" instance=ExtResource("3_o7gw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.5944, 38.3799, 4.16665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.9022, 38.3799, 4.16665)
 
 [node name="SandBlock" parent="Platforms" instance=ExtResource("4_w5l3n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5077, 15.9784, 5.1096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1651, 15.9784, 5.1096)
 
 [node name="GrassBlock" parent="Platforms" instance=ExtResource("2_764mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9747, 16.9786, 4.91331)

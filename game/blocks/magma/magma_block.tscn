@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1awm2xeqqk53"]
+
+[ext_resource type="PackedScene" uid="uid://3n0akaiht78q" path="res://res/models/magma_block.glb" id="1_y1v60"]
+[ext_resource type="PackedScene" uid="uid://22mhs1xyy26t" path="res://game/block_body.tscn" id="2_6tydu"]
+[ext_resource type="Script" path="res://game/blocks/magma/magma_block.gd" id="2_hiwfr"]
+[ext_resource type="PackedScene" uid="uid://28vc05tljk10" path="res://game/visible_on_screen_notifier/visible_on_screen_notifier_3d.tscn" id="3_uskyf"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bbyr2j0pbyxxd" path="res://game/blocks/block.occ" id="4_rqegi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wu7u"]
+size = Vector3(1.596, 1.258, 1.596)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a7vrt"]
+points = PackedVector3Array(0.5, 1, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5)
+
+[node name="MagmaBlock" instance=ExtResource("1_y1v60")]
+script = ExtResource("2_hiwfr")
+
+[node name="Object_5" parent="Sketchfab_model/root/GLTF_SceneRootNode/_1/cube_0" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visibility_range_end = 200.0
+
+[node name="BlockBody" parent="." index="1" instance=ExtResource("2_6tydu")]
+
+[node name="VisibleOnScreenNotifier3D" parent="." index="2" node_paths=PackedStringArray("meshes") instance=ExtResource("3_uskyf")]
+meshes = [null]
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.004, 0)
+occluder = ExtResource("4_rqegi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00189823, 1.40483, 0.000183076)
+visible = false
+shape = SubResource("BoxShape3D_6wu7u")
+
+[node name="MagmaArea" type="Area3D" parent="." index="5"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MagmaArea" index="0"]
+transform = Transform3D(2.003, 0, 0, 0, 2.003, 0, 0, 0, 2.003, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_a7vrt")
+
+[connection signal="body_entered" from="MagmaArea" to="." method="_on_magma_area_body_entered"]

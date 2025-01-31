@@ -4,12 +4,6 @@ const SAVE_PATH = "user://save.json"
 
 var levels_complete: Dictionary = {
 	"level1": true,
-	"level2": false,
-	"level3": false,
-	"level4": false,
-	"level5": false,
-	"level6": false,
-	"level7": false
 }
 
 func save_game(data: Dictionary):
@@ -37,10 +31,11 @@ func load_game() -> Dictionary:
 			print("Ошибка загрузки JSON")
 	return {
 		"level1": true,
-		"level2": false,
-		"level3": false,
-		"level4": false,
-		"level5": false,
-		"level6": false,
-		"level7": false
+		#"level2": false,
+		#"level3": false,
+		#"level4": false,
+		#"level5": false,
+		#"level6": false,
+		#"level7": false,
+		#"level8": false,
 	}

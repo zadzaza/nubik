@@ -22,6 +22,8 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
+var is_burn: bool = false
+
 @onready var camera: Camera3D = $Camera3D
 @onready var pause_manager: PauseManager = $Control/PauseManager
 @onready var scope: Panel = $Control/Scope
@@ -31,7 +33,7 @@ var jump_vel: Vector3 # Jumping velocity
 # To track interstitial state changes, connect to the signal
 func _ready():
 	Bridge.advertisement.connect("interstitial_state_changed", Callable(self, "_on_interstitial_state_changed"))
-	audio_stream_player.play(0)
+	#audio_stream_player.play(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -81,6 +83,13 @@ func _jump(delta: float) -> Vector3:
 	jump_vel = Vector3.ZERO if is_on_floor() else jump_vel.move_toward(Vector3.ZERO, gravity * delta)
 	jump_height = max_jump_height
 	return jump_vel
+
+func burn():
+	if not is_burn:
+		is_burn = true
+		$FireAnim.show()
+		await get_tree().create_timer(1.1).timeout
+		get_tree().reload_current_scene()
 
 func _on_pause_manager_pause() -> void:
 	release_mouse()

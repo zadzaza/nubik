@@ -183,7 +183,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9522, 21.3851, 60.9894)
 
 [node name="FinishLine" parent="Platforms" instance=ExtResource("5_vualv")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.43778, 40.1161, 115.961)
-next_complete_level = 7
+next_complete_level = 8
 
 [node name="GrassBlock247" parent="Platforms" instance=ExtResource("2_yhfbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9522, 21.3851, 49.1793)
@@ -916,3 +916,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88195, 32.3383, 43.1442)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88195, 32.3383, 45.1221)
 
 [node name="World" parent="." instance=ExtResource("8_4ka0j")]
+
+[node name="Area3D" type="Area3D" parent="."]

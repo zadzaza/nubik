@@ -6,7 +6,6 @@ func _on_finish_area_body_entered(player: Player) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	SaveManager.levels_complete["level"+str(next_complete_level)] = true
 	SaveManager.save_game(SaveManager.levels_complete)
-	Bridge.advertisement.show_interstitial()
 	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
 
 func _on_storage_get_completed(success, data):

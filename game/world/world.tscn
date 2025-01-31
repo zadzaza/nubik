@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://vsjlvwlelow7"]
+[gd_scene load_steps=6 format=3 uid="uid://vsjlvwlelow7"]
 
 [ext_resource type="PackedScene" uid="uid://bkvdeohsu6821" path="res://game/world/fall_area.tscn" id="1_7fk47"]
+[ext_resource type="Script" path="res://game/world/world.gd" id="1_tjrvo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t370b"]
 sky_top_color = Color(0.285242, 0.418817, 0.873734, 1)
@@ -19,6 +20,7 @@ sky = SubResource("Sky_q13r3")
 ambient_light_color = Color(0.765489, 0.375009, 0.167551, 1)
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_tjrvo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bh1jy")

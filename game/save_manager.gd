@@ -2,6 +2,8 @@ extends Node
 
 const SAVE_PATH = "user://save.json"
 
+var is_show_helper: bool = false
+
 var levels_complete: Dictionary = {
 	"level1": true,
 }

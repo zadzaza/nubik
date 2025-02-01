@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c3lln1a3u2mdu" path="res://new_audio_stream_mp_3.tres" id="5_qj5we"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffewc"]
-radius = 0.712048
+radius = 0.752383
 height = 4.01563
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxqdv"]
@@ -80,11 +80,13 @@ script = ExtResource("1_a4ryj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03402, 0)
 shape = SubResource("CapsuleShape3D_ffewc")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03402, 0)
+shape = SubResource("CapsuleShape3D_ffewc")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78415, 0)
 fov = 85.0
-
-[node name="HUD" parent="." instance=ExtResource("2_5uivk")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qj5we")
@@ -93,87 +95,63 @@ volume_db = -5.0
 [node name="FireAnim" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FireAnim"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 270
 
-[node name="Control" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(-743.391, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 1
 
-[node name="Control2" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control2"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(-382.391, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 2
 
-[node name="Control4" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control4"]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(37.6088, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 3
 
-[node name="Control5" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control5"]
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(397.61, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 4
 
-[node name="Control6" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control6"]
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(733.61, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 5
 
-[node name="Control7" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control7"]
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(-140.391, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 6
 
-[node name="Control3" type="Control" parent="FireAnim/HBoxContainer"]
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireAnim/HBoxContainer/Control3"]
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="FireAnim"]
+position = Vector2(375.61, 0)
 scale = Vector2(35.2174, 35.2174)
 sprite_frames = SubResource("SpriteFrames_wibsh")
 autoplay = "default"
 frame = 7
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_5uivk")]

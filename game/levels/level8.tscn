@@ -977,5 +977,5 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -25.6833, 12.5054, 11.6905)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32857, 2.56147, 8.05049)
 
 [node name="FinishLine" parent="." instance=ExtResource("5_dl06s")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -36.6301, 6.61478, 18.4594)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -36.6301, 6.61478, 18.7306)
 next_complete_level = 9

@@ -359,5 +359,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.743, 24.4918, 7.72312)
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -141.233, 36.3087, 8.206)
 
 [node name="World" parent="." instance=ExtResource("10_mtov5")]
-
-[node name="World2" parent="." instance=ExtResource("10_mtov5")]

@@ -29,11 +29,13 @@ var is_burn: bool = false
 @onready var scope: Panel = $Control/Scope
 @onready var pause: HBoxContainer = $Control/Pause
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var hud: Control = $CanvasLayer/HUD
 
 # To track interstitial state changes, connect to the signal
 func _ready():
-	Bridge.advertisement.connect("interstitial_state_changed", Callable(self, "_on_interstitial_state_changed"))
-	#audio_stream_player.play(0)
+	
+	
+	audio_stream_player.play(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -47,6 +49,9 @@ func _physics_process(delta: float) -> void:
 		
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 	move_and_slide()
+
+func show_restart():
+	hud.show_pause(true)
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -89,7 +94,7 @@ func burn():
 		is_burn = true
 		$FireAnim.show()
 		await get_tree().create_timer(1.1).timeout
-		get_tree().reload_current_scene()
+		show_restart()
 
 func _on_pause_manager_pause() -> void:
 	release_mouse()

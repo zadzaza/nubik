@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwp2bp07ql5tj"]
+[gd_scene load_steps=6 format=3 uid="uid://cwp2bp07ql5tj"]
 
 [ext_resource type="Script" path="res://game/control.gd" id="1_fq48u"]
 [ext_resource type="Texture2D" uid="uid://b0780yyksa7ai" path="res://textures/exit.svg" id="1_poolq"]
 [ext_resource type="Texture2D" uid="uid://c7fa3kd5oc01r" path="res://textures/strelka.png" id="2_8xvx1"]
 [ext_resource type="Script" path="res://addons/pause-manager/scripts/pause_manager.gd" id="3_idt5g"]
+[ext_resource type="Texture2D" uid="uid://cbnekww2mbh8m" path="res://textures/restart.svg" id="4_xyhry"]
 
-[node name="Control" type="Control"]
+[node name="HUD" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -91,11 +92,92 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8xvx1")
 
+[node name="Restart" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="ExitBtn" type="Button" parent="Restart"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+
+[node name="TextureRect" type="TextureRect" parent="Restart/ExitBtn"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.09
+offset_top = -50.5
+offset_right = 40.91
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_poolq")
+flip_h = true
+
+[node name="RestartBtn" type="Button" parent="Restart"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+
+[node name="TextureRect" type="TextureRect" parent="Restart/RestartBtn"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -50.5
+offset_right = 50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xyhry")
+
 [node name="PauseManager" type="Node" parent="."]
 script = ExtResource("3_idt5g")
 action_names = Array[StringName]([&"exit"])
+keys = Array[int]([])
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 35.77
+offset_top = 35.77
+offset_right = 266.77
+offset_bottom = 136.77
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_poolq")
+flip_h = true
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 71
+text = "Tab"
+
+[connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="Pause/ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="Pause/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Restart/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="Restart/RestartBtn" to="." method="_on_restart_btn_pressed"]
 [connection signal="pause" from="PauseManager" to="." method="_on_pause_manager_pause"]
 [connection signal="resume" from="PauseManager" to="." method="_on_pause_manager_resume"]

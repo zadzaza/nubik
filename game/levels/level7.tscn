@@ -916,5 +916,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88195, 32.3383, 43.1442)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88195, 32.3383, 45.1221)
 
 [node name="World" parent="." instance=ExtResource("8_4ka0j")]
-
-[node name="Area3D" type="Area3D" parent="."]
